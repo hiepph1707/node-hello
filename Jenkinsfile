@@ -37,4 +37,10 @@ pipeline {
             }
         }
     }
+    
+    post {
+        always {
+            rocketSend "${env.JOB_NAME} - Build #${env.BUILD_NUMBER} [${currentBuild.currentResult}] (<${env.BUILD_URL}|Open>)"
+        }
+    }
 }
