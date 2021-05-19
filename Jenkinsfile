@@ -1,7 +1,7 @@
 pipeline {
 
-    //agent none
-    agent {label 'master'}
+    agent none
+    //agent {label 'master'}
     
     environment {
         PASS = credentials('registry-pass') 
@@ -14,7 +14,7 @@ pipeline {
     stages {
 
         stage('Build') {
-            //agent {label 'node2'}
+            agent {label 'master'}
             steps {
                 sh '''
                     ./jenkins/build/build.sh $DEPLOY_TAG
@@ -24,14 +24,14 @@ pipeline {
         }
 
         stage('Push') {
-            //agent {label 'node2'}
+            agent {label 'master'}
             steps {
                 sh './jenkins/push/push.sh'
             }
         }
 
         stage('Deploy') {
-            //agent {label 'node1'}
+            agent {label 'ho-srv-chat-dev'}
             steps {
                 sh './jenkins/deploy/deploy.sh'
             }
