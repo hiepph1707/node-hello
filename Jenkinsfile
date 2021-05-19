@@ -8,7 +8,7 @@ pipeline {
     }
     
     parameters {
-        choice(name: 'DEPLOY_TAG', choices: ['Dev', 'Prod'], description: 'Deploy Environment')
+        choice(name: 'DEPLOY_TAG', choices: ['dev', 'prod'], description: 'Deploy Environment')
     }
 
     stages {
