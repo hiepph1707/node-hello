@@ -6,6 +6,10 @@ pipeline {
     environment {
         PASS = credentials('registry-pass') 
     }
+    
+    parameters {
+        choice(name: 'DEPLOY_TAG', choices: ['Dev', 'Prod'], description: 'Deploy Environment')
+    }
 
     stages {
 
