@@ -13,7 +13,7 @@ pipeline {
             //agent {label 'node2'}
             steps {
                 sh '''
-                    ./jenkins/build/build.sh
+                    ./jenkins/build/build.sh $DEPLOY_TAG
                 '''
             }
 
