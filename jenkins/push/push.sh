@@ -7,8 +7,8 @@ echo "********************"
 IMAGE="nodejs-project"
 
 echo "** Logging in ***"
-docker login -u hiepph1707 -p Huh!epph@1781523
+docker login -u hiepph1707 -p $PASS
 echo "*** Tagging image ***"
-docker tag $IMAGE:$BUILD_TAG hiepph1707/$IMAGE:$BUILD_TAG
+docker tag $IMAGE:$DEPLOY_TAG hiepph1707/$IMAGE:$DEPLOY_TAG
 echo "*** Pushing image ***"
-docker push hiepph1707/$IMAGE:$BUILD_TAG
+docker push hiepph1707/$IMAGE:$DEPLOY_TAG
